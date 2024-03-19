@@ -14,6 +14,7 @@ public class BtnEvent : MonoBehaviour
     [SerializeField] private Button JoinBtn;
     [SerializeField] private Text canIdTxt;
 
+    private bool check = false;
     private string nickName;
 
     void Awake()
@@ -25,25 +26,24 @@ public class BtnEvent : MonoBehaviour
     void Start()
     {
         //로컬에 저장된 닉네임이 없으면
-        if(nickName != null)
+        if(nickName == null)
         {
             nickName = "";
             JoinBtn.gameObject.SetActive(true);
             nickNameField.gameObject.SetActive(true);  
             nickNameField.characterLimit = 10;
         }
+        //있을 경우
         else
         {
-            SceneManager.LoadScene("Main");
+            StartCoroutine(WaitForSec());
+            LoadingSceneController.LoadScene("Main");
         }
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            LoadingSceneController.LoadScene("Main");
-        }
+     
     }
 
     bool CheckNickName()
@@ -99,4 +99,10 @@ public class BtnEvent : MonoBehaviour
     {
         
     }
+
+    IEnumerator WaitForSec()
+    {
+        yield return new WaitForSeconds(2.0f);
+    }
+
 }
