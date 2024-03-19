@@ -25,17 +25,17 @@ public class BtnEvent : MonoBehaviour
     void Start()
     {
         //로컬에 저장된 닉네임이 없으면
-        //if(nickName == null)
-        //{
-        //    nickName = "";
-        //    JoinBtn.gameObject.SetActive(true);
-        //    nickNameField.gameObject.SetActive(true);  
-        //    nickNameField.characterLimit = 10;
-        //}
-        //else
-        //{
-        //    SceneManager.LoadScene("Main");
-        //}
+        if(nickName != null)
+        {
+            nickName = "";
+            JoinBtn.gameObject.SetActive(true);
+            nickNameField.gameObject.SetActive(true);  
+            nickNameField.characterLimit = 10;
+        }
+        else
+        {
+            SceneManager.LoadScene("Main");
+        }
     }
 
     void Update()
