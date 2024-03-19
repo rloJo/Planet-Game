@@ -392,10 +392,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 85068627}
   m_HandleRect: {fileID: 1153705951}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.0001
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -738,13 +738,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 2117881739}
   m_HandleRect: {fileID: 783091332}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.0001
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1015494602}
+        m_TargetAssemblyTypeName: SetVolume, Assembly-CSharp
+        m_MethodName: SetBGMLevel
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &483783876
 GameObject:
   m_ObjectHideFlags: 0
@@ -1434,6 +1446,7 @@ GameObject:
   - component: {fileID: 1015494599}
   - component: {fileID: 1015494601}
   - component: {fileID: 1015494600}
+  - component: {fileID: 1015494602}
   m_Layer: 5
   m_Name: SettingPanel
   m_TagString: Untagged
@@ -1502,6 +1515,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1015494598}
   m_CullTransparentMesh: 1
+--- !u!114 &1015494602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1015494598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e88d8d35d0cb1f4d92b62dd307da539, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixer: {fileID: 24100000, guid: 107248ccb32e460449a3d8964309c3b6, type: 2}
+  BGMSlider: {fileID: 469591940}
+  EffectSlider: {fileID: 324920165}
 --- !u!1 &1015741085
 GameObject:
   m_ObjectHideFlags: 0
@@ -1580,7 +1608,7 @@ AudioSource:
   m_GameObject: {fileID: 1040701137}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 8766698056215779428, guid: 452467edafb84414cb3946b4aa7dc0e9, type: 2}
   m_audioClip: {fileID: 8300000, guid: 4bdd5e561761d0747bb08bc4eee7b27f, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1

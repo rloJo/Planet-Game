@@ -20,14 +20,16 @@ public class BtnEvent : MonoBehaviour
     void Awake()
     {
         //사용자 로컬에 저장된 nickName 불러오기
-        nickName = PlayerPrefs.GetString("NickName", nickName); 
+        nickName = PlayerPrefs.GetString("NickName", nickName);
     }
 
     void Start()
     {
         //로컬에 저장된 닉네임이 없으면
-        if(nickName == null)
+        if(nickName != null)
         {
+            PlayerPrefs.SetFloat("BGMVolume", 1.0f);
+            PlayerPrefs.SetFloat("EffectsVolume", 1.0f);
             nickName = "";
             JoinBtn.gameObject.SetActive(true);
             nickNameField.gameObject.SetActive(true);  
