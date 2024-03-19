@@ -14,6 +14,7 @@ public class SetVolume : MonoBehaviour
     void Start()
     {
         BGMSlider.value = PlayerPrefs.GetFloat("BGMVolume");
+        EffectSlider.value = PlayerPrefs.GetFloat("EffectsVolume");
     }
 
     public void SetBGMLevel(float sliderValue)

@@ -14,7 +14,6 @@ public class BtnEvent : MonoBehaviour
     [SerializeField] private Button JoinBtn;
     [SerializeField] private Text canIdTxt;
 
-    private bool check = false;
     private string nickName;
 
     void Awake()
