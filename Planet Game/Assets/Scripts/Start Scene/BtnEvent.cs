@@ -11,21 +11,31 @@ using System.Text.RegularExpressions;
 public class BtnEvent : MonoBehaviour
 {
     [SerializeField] private InputField nickNameField;
+    [SerializeField] private Button JoinBtn;
     [SerializeField] private Text canIdTxt;
-    //[serializeField] private Panel SettingPanel;
 
     private string nickName;
-    private bool isSetting;
 
     void Awake()
     {
-        nickName = "";
-        isSetting = false; 
+        //사용자 로컬에 저장된 nickName 불러오기
+        nickName = PlayerPrefs.GetString("NickName", nickName); 
     }
 
     void Start()
     {
-        nickNameField.characterLimit = 10;
+        //로컬에 저장된 닉네임이 없으면
+        if(nickName == null)
+        {
+            nickName = "";
+            JoinBtn.gameObject.SetActive(true);
+            nickNameField.gameObject.SetActive(true);  
+            nickNameField.characterLimit = 10;
+        }
+        else
+        {
+            SceneManager.LoadScene("Main");
+        }
     }
 
     bool CheckNickName()
@@ -79,14 +89,6 @@ public class BtnEvent : MonoBehaviour
     // 설정 버튼 누르면 발생할 메소드
     public void SettingBtn()
     {
-        //isSetting != isSetting;
-        if (isSetting)
-        {
-          //  SettingPanel.SetVisble(true);
-        }
-        else
-        {
-           // SettingPanel.SetVisible(false);
-        }
+        
     }
 }
