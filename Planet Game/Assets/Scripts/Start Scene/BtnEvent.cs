@@ -91,7 +91,8 @@ public class BtnEvent : MonoBehaviour
         if (CheckNickName())
         {
             PlayerPrefs.SetString("NickName", nickName);
-            SceneManager.LoadScene("Main");
+            StartCoroutine(WaitForSec());
+            LoadingSceneController.LoadScene("Main");
         }
     }
     
